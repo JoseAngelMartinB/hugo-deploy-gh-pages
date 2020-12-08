@@ -42,7 +42,9 @@ curl -sSL "${URL}" > /tmp/hugo.deb && dpkg --force architecture -i /tmp/hugo.deb
 
 # Install Hugo Go dependency
 echo "Downloading Go"
-apt-get install golang
+curl -sSL "https://golang.org/dl/go1.15.6.linux-amd64.tar.gz" > /tmp/go.tar.gz
+tar -C /usr/local -xzf /tmp/go.tar.gz
+export PATH=$PATH:/usr/local/go/bin
 
 echo "Building the Hugo site with: 'hugo ${HUGO_ARGS}'"
 hugo "${HUGO_ARGS}"
