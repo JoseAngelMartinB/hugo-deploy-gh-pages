@@ -35,6 +35,9 @@ else
   EXTENDED_URL=""
 fi
 
+# Add safe directory option for github workspace to disable fatal error
+git config --global --add safe.directory /github/workspace
+
 echo "Downloading Hugo: ${HUGO_VERSION}${EXTENDED_INFO}"
 URL=https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${EXTENDED_URL}${HUGO_VERSION}_Linux-64bit.deb
 echo "Using '${URL}' to download Hugo"
